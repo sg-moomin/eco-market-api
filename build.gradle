@@ -1,12 +1,12 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.1.0-SNAPSHOT'
-	id 'io.spring.dependency-management' version '1.1.0'
+	id 'org.springframework.boot' version '2.7.6-SNAPSHOT'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
 group = 'com.sgmoomin.ecomarket'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '19'
+sourceCompatibility = '11'
 
 configurations {
 	compileOnly {
@@ -22,7 +22,6 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-graphql'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -34,9 +33,10 @@ dependencies {
 	testImplementation 'org.springframework.graphql:spring-graphql-test'
 
 	// graphql
-	// implementation 'com.graphql-java-kickstart:graphql-spring-boot-starter:11.0.0'
-	// implementation 'com.graphql-java-kickstart:playground-spring-boot-starter:11.0.0'
-	// testImplementation 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:11.0.0'
+	// implementation 'org.springframework.boot:spring-boot-starter-graphql'
+	implementation 'com.graphql-java-kickstart:graphql-spring-boot-starter:11.0.0'
+	implementation 'com.graphql-java-kickstart:playground-spring-boot-starter:11.0.0'
+	testImplementation 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:11.0.0'
 
 	// PostgreSQL
 	implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.18'          // https://mvnrepository.com/artifact/org.postgresql/postgresql
