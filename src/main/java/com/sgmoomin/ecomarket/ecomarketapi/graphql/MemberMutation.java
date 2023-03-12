@@ -92,11 +92,11 @@ public class MemberMutation implements GraphQLMutationResolver {
 				String memberEmail = maskingService.maskingMemberEmail(member.getMemberemail());
 
 				// 3. 마스킹 된 이메일 업데이트
-				// 3.1 이력 먼저 insert -> 변경 전 데이터 
-				MemberHist memberHist = new MemberHist();
-				int histSn = this.selectMemberHistSn(member);
-				memberHist = memberHistDto.fromMemberHist(member, histSn);
-				memberHistRepository.save(memberHist);
+				// // 3.1 이력 먼저 insert -> 변경 전 데이터 
+				// MemberHist memberHist = new MemberHist();
+				// int histSn = this.selectMemberHistSn(member);
+				// memberHist = memberHistDto.fromMemberHist(member, histSn);
+				// memberHistRepository.save(memberHist);
 				
 				// 3.2 이력 insert 완료 후 date 변경
 				int chk = memberRepository.updateMemberEmailMask(memberid, memberEmail);

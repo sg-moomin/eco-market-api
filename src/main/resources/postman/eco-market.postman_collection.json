@@ -1,0 +1,181 @@
+{
+	"info": {
+		"_postman_id": "19bb2ca7-5daf-441c-95a7-f07ad272b84b",
+		"name": "eco-market",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20768733"
+	},
+	"item": [
+		{
+			"name": "member",
+			"item": [
+				{
+					"name": "query",
+					"item": [
+						{
+							"name": "1. 모든 맴버 조회(allFindMembers)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "# 모든맴버\nquery{\n    allFindMembers{\n        membersn\n        memberid\n        memberemail\n        membernumber\n    }\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/eco-market",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"eco-market"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2. 특정 맴버 찾기(findMembers)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "# 특정맴버\nquery{\n    \bfindMembers(memberid : \"moomin\"){\n        membersn\n        memberid\n        memberemail\n        membernumber\n    }\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/eco-market",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"eco-market"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "mutation",
+					"item": [
+						{
+							"name": "3. 회원(맴버) 등록(registerMember)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "#회원 등록\nmutation{\n    registerMember(\n        membersn:1\n        memberid:\"moominbaby\"\n        memberemail:\"moominbaby@naver.com\"\n        membernumber:\"01011112222\"\n    ){\n        memberid\n        membersn\n    }\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/eco-market",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"eco-market"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4. 회원(맴버) 삭제",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation{\n    deleteMember(memberid:\"moominbaby\")\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/eco-market",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"eco-market"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "5. 맴버 이메일 마스킹(updateMemberEmailMask)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation{\n    updateMemberEmailMask(memberid:\"moominbaby\")\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/eco-market",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"eco-market"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "eco-market-api_graphql",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "# input BoardEntity{\n#     boardId:String\n#     boardName:String\n#     createDate:String\n# }\n\n# input Member{\n#     membersn: Int\n#     memberid: String\n#     memberemail: String\n#     membernumber: String\n# }\n\n\n# 모든맴버\nquery{\n    allFindMembers{\n        membersn\n        memberid\n        memberemail\n        membernumber\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
