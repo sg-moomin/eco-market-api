@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.sgmoomin.ecomarket.ecomarketapi.domain.Member;
+import com.sgmoomin.ecomarket.ecomarketapi.domain.MemberEpisode;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,6 +24,7 @@ public class MemberDto {
 	private String memberId;
 	private String memberEmail;
 	private String memberNumber;
+	private MemberEpisode memberEpisode;
 	
 	public static MemberDto fromMember(Member member) {
 		return MemberDto.builder()

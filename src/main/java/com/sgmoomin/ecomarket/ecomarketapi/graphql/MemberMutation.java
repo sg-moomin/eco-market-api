@@ -7,13 +7,16 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.sgmoomin.ecomarket.ecomarketapi.domain.Member;
-import com.sgmoomin.ecomarket.ecomarketapi.domain.MemberHist;
-import com.sgmoomin.ecomarket.ecomarketapi.dto.MemberHistDto;
+// import com.sgmoomin.ecomarket.ecomarketapi.domain.MemberHist;
+// import com.sgmoomin.ecomarket.ecomarketapi.dto.MemberHistDto;
 import com.sgmoomin.ecomarket.ecomarketapi.repository.MemberHistRepository;
 import com.sgmoomin.ecomarket.ecomarketapi.repository.MemberRepository;
 import com.sgmoomin.ecomarket.ecomarketapi.service.MaskingService;
 
 import graphql.kickstart.tools.GraphQLMutationResolver;
+
+// import com.coxautodev.graphql.tools.GraphQLMutationResolver;
+// import com.sgmoomin.ecomarket.ecomarketapi.repository.*;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -84,7 +87,7 @@ public class MemberMutation implements GraphQLMutationResolver {
 		
 		// 1. 맴버 이메일 조회
 		List<Member> memberList = memberRepository.findAll();
-		MemberHistDto memberHistDto = new MemberHistDto();
+		// MemberHistDto memberHistDto = new MemberHistDto();
 		
 		for(Member member : memberList){
 			if(member.getMemberid().equals(memberid)){
@@ -118,7 +121,8 @@ public class MemberMutation implements GraphQLMutationResolver {
 	 * @throws Exception
 	 */	
 	private int selectMemberHistSn(Member member) throws Exception{
-		return memberHistRepository.selectMemberHistSn(member.getMembersn());
+		// return memberHistRepository.selectMemberHistSn(member.getMembersn());
+		return 0;
 	}
 
 

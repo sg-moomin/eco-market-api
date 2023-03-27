@@ -3,8 +3,12 @@ schema {
     mutation: Mutation,
 }
 
+scalar Date
+# scalar Long
+
 type Mutation {
     registerMember(membersn: Int!, memberid: String!, memberemail: String!, membernumber: String!): Member
+    # registerMemberTest($MemberEntity: Member): Member
     deleteMember(memberid: String!): Boolean
 	updateMemberEmailMask(memberid: String!): Boolean
 }
@@ -12,8 +16,19 @@ type Mutation {
 type Query{
 	findMembers(memberid: String!): Member!
 	allFindMembers: [Member]
+
+	# Common
+	# MemberEpisode
+	getMemberEpisode: MemberEpisode
+
 }
 
+type MemberEpisode {
+	mepisNo: ID!
+	title: String
+	# randomUID: Long
+	regDate: Date
+}
 
 # 응답 : member
 type Member{
@@ -21,6 +36,12 @@ type Member{
 	memberid: String
 	memberemail : String
 	membernumber : String
+	# memberEpisode: MemberEpisode
+	# memberEcoType: [EcoType]
+}
+
+type Friend{
+	memberid: String
 }
 
 input MemberEntity{
@@ -29,3 +50,15 @@ input MemberEntity{
 	memberemail : String
 	membernumber : String
 }
+
+enum EcoType{
+	FRASH
+	STAR
+	FIXT
+}
+
+
+
+#######################################
+# Common Part
+#######################################
